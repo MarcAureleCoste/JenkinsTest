@@ -1,12 +1,12 @@
 pipeline {
     agent {
-        docker { image 'marcaurelecoste/fedora' }
+        docker { image 'fedora' }
     }
     stages {
         stage('HELLO') {
             steps {
                 sh '''
-                    echo 'Hello World!'
+                    echo 'Hello World !'
                 '''
             }
         }
