@@ -12,9 +12,10 @@ pipeline {
         }
         stage('CREDS') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'jki_test', usernameVariable: 'username', passwordVariable: 'password')]) {
+                withCredentials([string(credentialsId: 'SECRET_VAR', variable: 'SECRET_VAR')]) {
                     sh '''
-                        make init-predict
+                        final = 'final : '$SECRET_VAR
+                        echo $final
                     '''
                 }
             }
