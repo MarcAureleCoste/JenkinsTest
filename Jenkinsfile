@@ -1,4 +1,7 @@
 pipeline {
+    agent {
+        docker { image 'marcaurelecoste/fedora' }
+    }
     stages {
         stage('HELLO') {
             steps {
