@@ -14,7 +14,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'SECRET_VAR', variable: 'SECRET_VAR')]) {
                     sh '''
-                        final = 'final : '$SECRET_VAR
+                        final='final : '$SECRET_VAR
                         echo $final
                     '''
                 }
