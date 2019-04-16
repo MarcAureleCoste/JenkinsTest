@@ -6,11 +6,11 @@ pipeline {
     stages {
         stage('HELLO') {
             steps {
-                sh '''
+                sh """
                     echo 'Hello World!'
                     echo $BRANCH_NAME
-                    echo 'SALUT '$SEC
-                '''
+                    echo 'SALUT '${credential('SEC')}
+                """
             }
         }
         stage('CREDS') {
