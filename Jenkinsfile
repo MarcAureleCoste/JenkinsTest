@@ -9,12 +9,12 @@ pipeline {
                 SEC = credentials('SEC')
             }
             steps {
-                sh """
+                sh '''
                     echo 'Hello World!'
                     echo $BRANCH_NAME
                     mstr='SALUT '$SEC
                     echo $mstr
-                """
+                '''
             }
         }
         stage('CREDS') {
