@@ -21,7 +21,7 @@ pipeline {
             }
         }
 
-        def MySupaFunc() {
+        def mySupaFunc() {
             echo 'SUPA FUNCTION !'
         }
 
@@ -33,6 +33,7 @@ pipeline {
                 sh '''
                     echo 'SUPA BRANCH '$BRANCH_NAME
                 '''
+                mySupaFunc
             }
         }
         stage('DEVELOP') {
