@@ -27,11 +27,25 @@ pipeline {
             when {
                 expression { BRANCH_NAME ==~ /f\d+(?!.)$/ }
             }
-            steps {
-                sh '''
-                    echo 'SUPA BRANCH '$BRANCH_NAME
-                '''
+            parallel {
+                stage ('First') {
+                    steps {
+                        sh '''
+                            echo 'FIRST !'
+                            echo 'SUPA BRANCH '$BRANCH_NAME
+                        '''
+                    }
+                }
+                stage ('Second') {
+                    steps {
+                        sh '''
+                            echo 'SECOND !'
+                            echo 'SUPA BRANCH '$BRANCH_NAME
+                        '''
+                    }
+                }
             }
+            
         }
         stage('DEVELOP') {
             when {
