@@ -67,10 +67,10 @@ pipeline {
 }
 
 def mySupaFunc(String ecrURL, String imageName, String tag) {
+    def img="$ecrURL/$imageName:$tag"
     sh """
         echo 'SUPA FUNCTION !'
         ls -l
-        img=$ecrURL/$imageName:$tag
         echo $img
     """
 }
