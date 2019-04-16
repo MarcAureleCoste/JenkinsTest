@@ -42,7 +42,7 @@ pipeline {
         }
         stage('MASTER') {
             when {
-                exrpession {BRANCH_NAME ==~ /(develop|master)/}
+                exrpession { BRANCH_NAME ==~ /(develop|master)/ }
             }
             steps {
                 sh '''
