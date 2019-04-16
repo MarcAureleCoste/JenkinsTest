@@ -67,7 +67,9 @@ pipeline {
 }
 
 def mySupaFunc() {
-    echo 'SUPA FUNCTION !'
-    ls -l
-    echo $ENV
+    sh '''
+        echo 'SUPA FUNCTION !'
+        ls -l
+        echo $ENV
+    '''
 }
