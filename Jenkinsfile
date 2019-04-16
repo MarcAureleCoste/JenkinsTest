@@ -20,5 +20,36 @@ pipeline {
                 }
             }
         }
+        stage('DEVELOP') {
+            when {
+                branch 'develop'
+            }
+            steps {
+                sh '''
+                    echo 'IN DEV !'
+                '''
+            }
+        }
+        stage('MASTER') {
+            when {
+                branch 'master'
+            }
+            steps {
+                sh '''
+                    echo 'IN MASTER !'
+                '''
+            }
+        }
+        stage('MASTER') {
+            when {
+                exrpession {BRANCH_NAME ==~ /(develop|master)/}
+            }
+            steps {
+                sh '''
+                    echo 'MASTER OR DEVELOP ?'
+                    echo $BRANCH_NAME
+                '''
+            }
+        }
     }
 }
