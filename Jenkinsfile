@@ -29,7 +29,7 @@ pipeline {
                 sh '''
                     echo 'SUPA BRANCH '$BRANCH_NAME
                 '''
-                mySupaFunc
+                mySupaFunc()
             }
         }
         stage('DEVELOP') {
