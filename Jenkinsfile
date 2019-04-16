@@ -67,9 +67,9 @@ pipeline {
 }
 
 def mySupaFunc(String sparam) {
-    sh '''
+    sh """
         echo 'SUPA FUNCTION !'
         ls -l
-        echo '''+sparam+
-    '''
+        echo $sparam
+    """
 }
