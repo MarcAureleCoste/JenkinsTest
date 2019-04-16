@@ -9,7 +9,7 @@ pipeline {
                 sh """
                     echo 'Hello World!'
                     echo $BRANCH_NAME
-                    echo 'SALUT '${credentials('SEC')}
+                    echo 'SALUT '$SEC
                 """
             }
         }
