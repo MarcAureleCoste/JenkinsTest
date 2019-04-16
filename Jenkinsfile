@@ -70,6 +70,6 @@ def mySupaFunc(String sparam) {
     sh '''
         echo 'SUPA FUNCTION !'
         ls -l
-        echo '''+sparam+'
+        echo '''+sparam+
     '''
 }
