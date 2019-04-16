@@ -1,7 +1,3 @@
-def mySupaFunc() {
-    echo 'SUPA FUNCTION !'
-}
-
 pipeline {
     agent {
         docker { image 'fedora' }
@@ -68,4 +64,8 @@ pipeline {
             }
         }
     }
+}
+
+def mySupaFunc() {
+    echo 'SUPA FUNCTION !'
 }
