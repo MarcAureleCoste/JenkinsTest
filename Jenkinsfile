@@ -20,9 +20,13 @@ pipeline {
                 }
             }
         }
+
+        def MySupaFunc() {
+            echo 'SUPA FUNCTION !'
+        }
+
         stage ('FEATURES') {
             when {
-                // expression { BRANCH_NAME ==~ /Release-\d+.\d+.\d+(?!.)$/ }
                 expression { BRANCH_NAME ==~ /f\d+(?!.)$/ }
             }
             steps {
