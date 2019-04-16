@@ -9,6 +9,7 @@ pipeline {
                 sh '''
                     echo 'Hello World!'
                     echo $BRANCH_NAME
+                    echo 'SALUT '$SEC
                 '''
             }
         }
