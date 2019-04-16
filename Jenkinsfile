@@ -22,7 +22,7 @@ pipeline {
         }
         stage ('FEATURES') {
             when {
-                expression { BRANCH_NAME ==~ /^(Release-\d+.\d+.\d+(?!.))$/ }
+                expression { BRANCH_NAME ==~ Release-\d+.\d+.\d+(?!.)$ }
             }
             steps {
                 sh '''
