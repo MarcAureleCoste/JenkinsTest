@@ -8,3 +8,4 @@ def mySupaFunc(String ecrURL, String imageName, String tag) {
         echo $test
     """
 }
+return this
