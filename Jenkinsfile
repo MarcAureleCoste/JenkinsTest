@@ -20,6 +20,16 @@ pipeline {
                 }
             }
         }
+        stage ('FEATURES') {
+            when {
+                expression { BRANCH_NAME ==~ /f*/ }
+            }
+            steps {
+                sh '''
+                    echo 'SUPA BRANCH '$BRANCH_NAME
+                '''
+            }
+        }
         stage('DEVELOP') {
             when {
                 branch 'develop'
