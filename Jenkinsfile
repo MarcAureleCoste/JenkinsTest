@@ -31,8 +31,6 @@ pipeline {
                 sh '''
                     echo 'SUPA BRANCH '$BRANCH_NAME
                 '''
-                def common=load "jenkins/mySupaFunc.groovy"
-                mySupaFunc('aws_url.dada.com', 'service', 'bfd628bdde634eb4111796e4a0941ea3b451018e')
             }
         }
         stage('DEVELOP') {
