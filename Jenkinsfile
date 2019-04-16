@@ -29,7 +29,7 @@ pipeline {
                 sh '''
                     echo 'SUPA BRANCH '$BRANCH_NAME
                 '''
-                mySupaFunc()
+                mySupaFunc('YEAH YEAH')
             }
         }
         stage('DEVELOP') {
@@ -66,10 +66,10 @@ pipeline {
     }
 }
 
-def mySupaFunc() {
+def mySupaFunc(String sparam) {
     sh '''
         echo 'SUPA FUNCTION !'
         ls -l
-        echo $ENV
+        echo $sparam
     '''
 }
