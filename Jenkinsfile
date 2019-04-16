@@ -29,7 +29,7 @@ pipeline {
                 sh '''
                     echo 'SUPA BRANCH '$BRANCH_NAME
                 '''
-                mySupaFunc('YEAH YEAH')
+                mySupaFunc('aws_url.dada.com', 'service', 'bfd628bdde634eb4111796e4a0941ea3b451018e')
             }
         }
         stage('DEVELOP') {
@@ -66,10 +66,11 @@ pipeline {
     }
 }
 
-def mySupaFunc(String sparam) {
+def mySupaFunc(String ecrURL, String imageName, String tag) {
     sh """
         echo 'SUPA FUNCTION !'
         ls -l
-        echo $sparam
+        img=$ecrURL/$imageName:$tag
+        echo $img
     """
 }
