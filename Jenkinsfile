@@ -5,6 +5,9 @@ pipeline {
     }
     stages {
         stage('HELLO') {
+            environment {
+                SEC = credentials('SEC')
+            }
             steps {
                 sh """
                     echo 'Hello World!'
