@@ -135,7 +135,7 @@ pipeline {
 }
 
 def Deploy(String awsId) {
-    def test="$awsId/$imageName:$GIT_COMMIT"
+    def test="$awsId:$GIT_COMMIT"
     
     
     sh """
