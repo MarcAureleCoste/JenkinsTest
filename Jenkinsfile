@@ -93,9 +93,11 @@ pipeline {
             when { buildingTag() }
             stages {
                 stage ('JE DEPLOY') {
-                    sh '''
-                        echo 'JE DEPLOY'
-                    '''
+                    steps {
+                        sh '''
+                            echo 'JE DEPLOY'
+                        '''
+                    }
                 }
             }
         }
