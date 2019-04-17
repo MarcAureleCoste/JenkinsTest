@@ -135,3 +135,9 @@ def Deploy(String awsId) {
         echo $GIT_COMMIT
     """
 }
+
+def Test(String test) {
+    sh """
+        echo $test
+    """
+}
