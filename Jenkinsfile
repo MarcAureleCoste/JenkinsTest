@@ -18,6 +18,15 @@ pipeline {
                             mstr='SALUT '$SEC
                             echo $mstr
                         '''
+                        
+                    }
+                }
+                stage ('TEST') {
+                    environment {
+                        test = credentials('AWS_ID_DEV')
+                    }
+                    steps {
+                        Test($test)
                     }
                 }
                 stage('CREDS') {
