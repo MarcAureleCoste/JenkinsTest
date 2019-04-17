@@ -90,7 +90,13 @@ pipeline {
         }
         
         stage ('DEPLOY') {
-            when { buildingTag() }
+            when { 
+                buildingTag()
+                anyOf {
+                    branch 'develop'
+                    branch 'master'
+                }
+            }
             stages {
                 stage ('JE DEPLOY') {
                     steps {
