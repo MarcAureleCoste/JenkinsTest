@@ -32,6 +32,7 @@ pipeline {
                 stage('CREDS') {
                     steps {
                         withCredentials([string(credentialsId: 'SECRET_VAR', variable: 'SECRET_VAR')]) {
+                            Test("${SECRET_VAR}")
                             sh '''
                                 final='final : '$SECRET_VAR
                                 echo $final
