@@ -96,17 +96,42 @@ pipeline {
                     branch 'develop'
                 }
             }
+            
             stages {
-                stage ('JE DEPLOY') {
+                stage ('JE DEPLOY DEV') {
+                    when {
+                        branch 'develop'
+                    }
+                    environment {
+                        aws_id = credentials('AWS_ID_DEV')
+                    }
                     steps {
-                        sh '''
-                            echo 'JE DEPLOY'
-                        '''
+                        Deploy()
+                    }
+                }
+                stage ('JE DEPLOY PROD') {
+                    when {
+                        buildingTag()   
+                    }
+                    environment {
+                        aws_id = credentials('AWS_ID_PROD')
+                    }
+                    steps {
+                        Deploy()
                     }
                 }
             }
         }
-        
     }
 }
 
+def Deploy(String awsId) {
+    def test="$awsId/$imageName:$GIT_COMMIT"
+    
+    
+    sh """
+        echo "Deployment of image:"
+        echo $test
+        echo $GIT_COMMIT
+    """
+}
