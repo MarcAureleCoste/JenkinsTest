@@ -105,9 +105,7 @@ pipeline {
                     environment {
                         aws_id = credentials('AWS_ID_DEV')
                     }
-                    steps {
-                        Deploy()
-                    }
+                    Deploy()
                 }
                 stage ('JE DEPLOY PROD') {
                     when {
@@ -116,9 +114,7 @@ pipeline {
                     environment {
                         aws_id = credentials('AWS_ID_PROD')
                     }
-                    steps {
-                        Deploy()
-                    }
+                    Deploy()
                 }
             }
         }
