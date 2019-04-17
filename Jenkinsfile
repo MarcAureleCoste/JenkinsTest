@@ -94,7 +94,6 @@ pipeline {
                 anyOf {
                     buildingTag()
                     branch 'develop'
-                    branch 'master'
                 }
             }
             stages {
