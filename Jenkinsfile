@@ -26,7 +26,7 @@ pipeline {
                         test = credentials('AWS_ID_DEV')
                     }
                     steps {
-                        Test($test)
+                        Test(${test})
                     }
                 }
                 stage('CREDS') {
