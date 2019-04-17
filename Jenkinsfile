@@ -106,7 +106,7 @@ pipeline {
                         aws_id = credentials('AWS_ID_DEV')
                     }
                     steps {
-                        Deploy()
+                        Deploy($aws_id)
                     }
                 }
                 stage ('JE DEPLOY PROD') {
@@ -117,7 +117,7 @@ pipeline {
                         aws_id = credentials('AWS_ID_PROD')
                     }
                     steps {
-                        Deploy()
+                        Deploy($aws_id)
                     }
                 }
             }
