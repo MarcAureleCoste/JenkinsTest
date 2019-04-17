@@ -18,6 +18,15 @@ pipeline {
                             mstr='SALUT '$SEC
                             echo $mstr
                         '''
+                        
+                    }
+                }
+                stage ('TEST') {
+                    environment {
+                        test = credentials('AWS_ID_DEV')
+                    }
+                    steps {
+                        Test("${test}")
                     }
                 }
                 stage('CREDS') {
@@ -106,7 +115,7 @@ pipeline {
                         aws_id = credentials('AWS_ID_DEV')
                     }
                     steps {
-                        Deploy($aws_id)
+                        Deploy("${aws_id}")
                     }
                 }
                 stage ('JE DEPLOY PROD') {
@@ -117,7 +126,7 @@ pipeline {
                         aws_id = credentials('AWS_ID_PROD')
                     }
                     steps {
-                        Deploy($aws_id)
+                        Deploy("${aws_id}")
                     }
                 }
             }
@@ -133,5 +142,11 @@ def Deploy(String awsId) {
         echo "Deployment of image:"
         echo $test
         echo $GIT_COMMIT
+    """
+}
+
+def Test(String test) {
+    sh """
+        echo $test
     """
 }
